@@ -37,6 +37,6 @@ if __name__ == '__main__':
             print('cookie已失效')  # 日志输出
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
-         requests.get('hhttps://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS!' +'&content='+sendContent)
+         requests.get('https://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS!' +'&content='+sendContent)
 
 
