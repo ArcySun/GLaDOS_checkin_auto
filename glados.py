@@ -31,12 +31,12 @@ if __name__ == '__main__':
         if 'message' in checkin.text:
             mess = checkin.json()['message']
             print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent += email+'----'+mess+'----剩余('+time+')天\n'
+            sendContent += 'GRES:'+mess+'-剩余('+time+')天'
         else:
-            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR!' +'&desp='+email+'cookie已失效')
+            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR-cookie已失效')
             print('cookie已失效')  # 日志输出
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
-         requests.get('https://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS!' +'&content='+sendContent)
+         requests.get('https://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS-' + sendContent)
 
 
