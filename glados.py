@@ -33,10 +33,10 @@ if __name__ == '__main__':
             print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
             sendContent += email+'----'+mess+'----剩余('+time+')天\n'
         else:
-            requests.get('http://www.pushplus.plus/send?token=' + sckey + '&content='+email+'cookie已失效')
+            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR!' +'&desp='+email+'cookie已失效')
             print('cookie已失效')  # 日志输出
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
-         requests.get('http://www.pushplus.plus/send?token=' + sckey + '&title='+email+'签到成功'+'&content='+sendContent)
+         requests.get('hhttps://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS!' +'&content='+sendContent)
 
 
