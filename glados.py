@@ -38,5 +38,6 @@ if __name__ == '__main__':
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
          requests.get('https://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS-' + sendContent)
+         print('ftqq 已经调用')
 
 
