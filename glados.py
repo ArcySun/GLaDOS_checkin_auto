@@ -2,6 +2,13 @@ import requests,json,os
 # -------------------------------------------------------------------------------------------
 # github workflows
 # -------------------------------------------------------------------------------------------
+
+def fqtt(sckey, status, msg):
+    url = "https://sctapi.ftqq.com/" + sckey + ".send"
+    payload = {'title': status + ":" + msg}
+    response = requests.request("POST", url, headers={}, data=payload)
+    print(response.text)
+
 if __name__ == '__main__':
 # pushplus秘钥 申请地址 http://www.pushplus.plus
     sckey = os.environ.get("PUSHPLUS_TOKEN", "")
@@ -31,13 +38,14 @@ if __name__ == '__main__':
         if 'message' in checkin.text:
             mess = checkin.json()['message']
             print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent += 'GRES:'+mess+'-剩余('+time+')天'
+            sendContent += 'SignMsg:'+mess+'-Left '+time+'days'
         else:
+            fqtt(sckey, "ERROR", "Cookie Invalid" )
             requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR-cookie已失效')
             print('cookie已失效')  # 日志输出
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
-         requests.get('https://sctapi.ftqq.com/' + sckey + '.send&title='+ 'SUCCESS-' + sendContent)
+         fqtt(sckey, "SUCCESS", sendContent)
          print('ftqq 已经调用')
 
 
