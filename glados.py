@@ -34,11 +34,11 @@ if __name__ == '__main__':
     #--------------------------------------------------------------------------------------------------------#  
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
-        email = state.json()['data']['email']
+        # email = state.json()['data']['email']
         if 'message' in checkin.text:
             mess = checkin.json()['message']
-            print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent += 'SignMsg:'+mess+'-Left '+time+'days'
+            # print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
+            sendContent +=  mess+'-'+time+'D left'
         else:
             fqtt(sckey, "ERROR", "Cookie Invalid" )
             requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR-cookie已失效')
