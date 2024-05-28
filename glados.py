@@ -36,9 +36,9 @@ if __name__ == '__main__':
         time = time.split('.')[0]
         # email = state.json()['data']['email']
         if 'message' in checkin.text:
-            mess = checkin.json()['message']
-            # print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent +=  mess+'-'+time+'D left'
+            points = checkin.json()['points']
+            print(email+'----结果--'+points+'----剩余('+time+')天')  # 日志输出
+            sendContent +=  'Get' + points +'P _ Left '+ time+'D '
         else:
             fqtt(sckey, "ERROR", "Cookie Invalid" )
             requests.get('https://sctapi.ftqq.com/' + sckey + '.send?title='+ 'ERROR-cookie已失效')
