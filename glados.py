@@ -37,7 +37,7 @@ if __name__ == '__main__':
         # email = state.json()['data']['email']
         if 'message' in checkin.text:
             points = checkin.json()['points']
-            print('结果--'+ str(points)+'----剩余('+ str(time)+')天')  # 日志输出
+            print('结果--'+ str(points)+'----剩余('+ time+')天')  # 日志输出
             sendContent +=  'Get' + points + 'P _ Left ' + time + 'D '
         else:
             fqtt(sckey, "ERROR", "Cookie Invalid" )
