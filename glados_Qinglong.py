@@ -5,6 +5,7 @@ sckey = os.environ.get("PUSHPLUS_TOKEN", "")
 sendContent = ''
 # glados账号cookie
 cookies= os.environ.get("GLADOS_COOKIE", []).split("&")
+# change mD
 if cookies[0] == "":
     print('未获取到COOKIE变量') 
     cookies = []
