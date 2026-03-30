@@ -8,8 +8,10 @@ on:
   # 标星时触发工作流程
   watch:
     types: [started]
+    
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
